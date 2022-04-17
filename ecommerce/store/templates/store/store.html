@@ -1,0 +1,23 @@
+{% extends 'store/main.html' %}
+{% load static %}
+
+{% block content %}
+	<div class="row">
+		{% for product in products %}
+		<div class="col-lg-4">
+			<a href="{{ product.get_absolute_url }}"><img class="thumbnail" src="{{product.imageURL}}" style="width: 100%; height: auto;"></a>
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product="{{product.id}}" data-action="add" class="btn btn btn-outline-success add-btn update-cart">Ajouter au panier</button>
+				
+				<!-- <a class="btn btn-outline-success" href="{{ product.get_absolute_url }}">Voir</a> -->
+				<h4 style="display: inline-block; float: right"><strong>{{product.price}} FCFA</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+
+{% endblock content %}
