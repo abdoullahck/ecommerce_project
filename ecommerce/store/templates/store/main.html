@@ -11,6 +11,8 @@
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<script src="https://use.fontawesome.com/a3d282afa8.js"></script>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/detail.css' %}">
 
 
 	<script type="text/javascript">
@@ -75,9 +77,11 @@
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" style="font-size: 18px;" href="{% url 'store' %}">Boutique <span class="sr-only">(current)</span></a>
+					<a class="nav-link" style="font-size: 18px;" href="{% url 'store' %}">Boutique <span
+							class="sr-only">(current)</span></a>
 				</li>
 
 
@@ -101,12 +105,56 @@
 	</nav>
 
 	<div class="container">
-		<br>
+
 		{% block content %}
 
 
 		{% endblock content %}
+
+
 	</div>
+	<br><br><br>
+
+
+	<div class="footer-dark">
+		<footer>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 item">
+						<h3 class="footer-title">A PROPOS DE NOUS</h3>
+						<ul>
+							<li><a href="#">A propos</a></li>
+							<li><a href="#">Mentions légales</a></li>
+		
+						</ul>
+					</div>
+					<div class="col-md-3 item">
+						<h3 class="footer-title">SHOPPING</h3>
+						<ul>
+							<li><a href="#">Conditions Générales de Ventes</a></li>
+							<li><a href="#">Programme Fidélité</a></li>
+							
+						</ul>
+					</div>
+					<div class="col-md-3 item">
+						<h3 class="footer-title" >BESOIN D'AIDE</h3>
+						<ul>
+							<li><a href="#">Livraison / Paiement</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+					</div>
+					<div class="col item social">
+						<a href="https://fr-fr.facebook.com/"><i class="fa fa-facebook"></i></a>
+						<a href="https://twitter.com/i/flow/login"><i class="fa fa-twitter"></i></a>
+						<a href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>
+						<a href="https://www.instagram.com/accounts/login/"><i class="fa fa-instagram"></i></a>
+					</div>
+				</div>
+				<p class="copyright">S-shop © 2022</p>
+			</div>
+		</footer>
+	</div>
+
 
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -122,6 +170,7 @@
 		crossorigin="anonymous"></script>
 
 	<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+
 </body>
 
 </html>
