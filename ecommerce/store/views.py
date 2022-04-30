@@ -4,6 +4,7 @@ import json
 import datetime
 from .models import *
 from .utils import cookieCart, cartData, guestOrder
+from django.db.models import Q
 
 
 def store(request):
@@ -110,3 +111,40 @@ def processOrder(request):
         )
 
     return JsonResponse('Payment submitted..', safe=False)
+
+""" def search(request):
+    query = request.GET["search"]
+    if not query:
+        list_product = Product.objects.all()
+    else:
+        list_product = Product.objects.filter(title__contains = query)
+        
+    if not liste_article.exists():
+        liste_article = Article.objects.filter(article__name__icontains=query) 
+        
+    return render(request, "store/search.html", {"query": query, "list_product": list_product })
+ """
+
+def search(request):
+    
+    
+    data = cartData(request)
+
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    results = []
+
+    if request.method == "GET":
+
+        query = request.GET.get('search')
+
+        if query == '':
+
+            query = 'None'
+
+        results = Product.objects.filter(Q(name__icontains=query) | Q(slug__icontains=query) | Q(description__icontains=query) )
+        context = {'items': items, 'order': order, 'cartItems': cartItems, 'query': query, 'results':results}
+
+    return render(request, "store/search.html", context)
